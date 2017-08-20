@@ -23,6 +23,7 @@
 
 * 使用Databinding作为整体架构
 * 欢迎界面的BulingBulingTextView 
+* 手动实现了上拉加载更多，并加入了加载错误的容错，点击重新加载回调
 * CardView + 多种type的RecyclerView展示干货列表
 * 结合BottomNavigationViewEx实现的底部导航，BottomNavigationViewEx继承于原生的BottomNavigationView
 * 使用自定义不可滑动，没有动画的ViewPager来管理不同的Fragment模块
