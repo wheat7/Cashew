@@ -3,6 +3,7 @@ package com.wheat7.cashew.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import com.wheat7.cashew.R;
 import com.wheat7.cashew.activity.InfoActivity;
@@ -85,7 +86,7 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
 
         @Override
         public void onError(@NonNull Throwable e) {
-
+            Toast.makeText(getActivity(), "请求失败，请稍后重试", Toast.LENGTH_LONG).show();
         }
 
         @Override

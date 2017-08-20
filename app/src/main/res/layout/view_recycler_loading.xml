@@ -7,10 +7,12 @@
               android:layout_height="48dp"
               android:gravity="center">
     <ProgressBar
+        android:id="@+id/progress_loading"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:indeterminate="false"/>
     <TextView
+        android:id="@+id/text_loading"
         android:layout_marginLeft="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

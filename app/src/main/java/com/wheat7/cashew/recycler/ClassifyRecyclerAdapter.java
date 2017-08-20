@@ -15,6 +15,7 @@ import com.wheat7.cashew.databinding.ItemHasImageBinding;
 import com.wheat7.cashew.databinding.ItemNoImageBinding;
 import com.wheat7.cashew.databinding.ViewRecyclerLoadingBinding;
 import com.wheat7.cashew.model.Gank;
+import com.wheat7.cashew.utils.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,6 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
     private static final int TYPE_ITEM_IMAGE = 1;
     private static final int TYPE_ITEM_NO_IMAGE = 2;
     private static final int TYPE_FOOTER = 3;
-
 
     public ClassifyRecyclerAdapter(Context context) {
         mContext = context;
@@ -57,7 +57,6 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         return TYPE_ITEM_NO_IMAGE;
     }
 
-
     public void setDataList(List<Gank> dataList) {
         if (dataList != null && dataList.size() != 0) {
             this.mDataList = dataList;
@@ -72,11 +71,12 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
     }
 //    }
 
+    FooterViewHolder footerViewHolder;
     @Override
     public BaseDataBindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case TYPE_FOOTER:
-                return new FooterViewHolder(parent, R.layout.view_recycler_loading);
+                return footerViewHolder = new FooterViewHolder(parent, R.layout.view_recycler_loading);
             case TYPE_ITEM_IMAGE:
                 return new ItemHasImageViewHolder(parent, R.layout.item_has_image);
             case TYPE_ITEM_NO_IMAGE:
@@ -116,6 +116,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
             getBinding().setData(data);
             getBinding().setShowCategory(false);
             getBinding().executePendingBindings();
+            getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -123,7 +124,9 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
                 }
             });
             if (data.getImages() != null && data.getImages().size() != 0) {
-                Glide.with(itemView.getContext()).load(data.getImages().get(0) + "?imageView2/0/w/200").into(getBinding().imgGank);
+                Glide.with(itemView.getContext())
+                        .load(data.getImages().get(0) + "?imageView2/0/w/200")
+                        .into(getBinding().imgGank);
             }
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -136,7 +139,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         }
     }
 
-    class ItemNoImageViewHolder extends BaseDataBindingViewHolder<ItemNoImageBinding> {
+    static class ItemNoImageViewHolder extends BaseDataBindingViewHolder<ItemNoImageBinding> {
 
 
         public ItemNoImageViewHolder(ViewGroup parent, @LayoutRes int res) {
@@ -147,6 +150,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
             getBinding().setData(data);
             getBinding().setShowCategory(false);
             getBinding().executePendingBindings();
+            getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -158,11 +162,43 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         }
     }
 
-    class FooterViewHolder extends BaseDataBindingViewHolder<ViewRecyclerLoadingBinding> {
+    static class FooterViewHolder extends BaseDataBindingViewHolder<ViewRecyclerLoadingBinding> {
 
         public FooterViewHolder(ViewGroup parent, @LayoutRes int res) {
             super(parent, res);
         }
+    }
+
+    public void setIsLoading() {
+        footerViewHolder.getBinding().textLoading.setText("正在加载更多");
+        footerViewHolder.getBinding().progressLoading.setVisibility(View.VISIBLE);
+    }
+
+    public void setOnNoLoadMore() {
+        footerViewHolder.getBinding().textLoading.setText("没有更多了");
+        footerViewHolder.getBinding().progressLoading.setVisibility(View.GONE);
+    }
+
+    public void setNetError() {
+        footerViewHolder.getBinding().textLoading.setText("加载错误，点击重试");
+        footerViewHolder.getBinding().viewLoading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if (mOnReloadClickListener != null) mOnReloadClickListener.onClick();
+            }
+        });
+        footerViewHolder.getBinding().progressLoading.setVisibility(View.GONE);
+    }
+
+    //网络问题重新加载时点击回调
+    private OnReloadClickListener mOnReloadClickListener;
+
+    public interface OnReloadClickListener {
+        void onClick();
+    }
+
+    public void setOnReloadClickListener(OnReloadClickListener onReloadClickListener) {
+        mOnReloadClickListener = onReloadClickListener;
     }
 
 }

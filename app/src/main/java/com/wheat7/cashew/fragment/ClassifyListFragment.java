@@ -35,6 +35,7 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
 
     private String mType;
     private ClassifyRecyclerAdapter mAdapter;
+    private int mCurrentPage;
 
     @Override
     public int getLayoutId() {
@@ -53,6 +54,7 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
         getBinding().recyclerClassify.setOnScrollListener(new LoadMoreRecyclerOnScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int current_page) {
+                mCurrentPage = current_page;
                 loadMore(current_page);
             }
         });
@@ -88,13 +90,22 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
             Log.d("GANK", "on next");
             if (gankClassifies != null && gankClassifies.size() != 0) {
                 mAdapter.addMoreItem(gankClassifies);
+            } else {
+                mAdapter.setOnNoLoadMore();
             }
         }
 
         @Override
         public void onError(@NonNull Throwable e) {
             Log.d("GANK", e.getMessage());
-            getBinding().swipeRefreshClassify.setRefreshing(false);
+            mAdapter.setNetError();
+            mAdapter.setOnReloadClickListener(new ClassifyRecyclerAdapter.OnReloadClickListener() {
+                @Override
+                public void onClick() {
+                    mAdapter.setIsLoading();
+                    loadMore(mCurrentPage);
+                }
+            });
         }
 
         @Override
@@ -140,12 +151,14 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
             Log.d("GANK", "on next");
             if (gankClassifies != null && gankClassifies.size() != 0) {
                     mAdapter.setDataList(gankClassifies);
+            } else {
             }
         }
 
         @Override
         public void onError(@NonNull Throwable e) {
             Log.d("GANK", e.getMessage());
+            getBinding().swipeRefreshClassify.setRefreshing(false);
         }
 
         @Override

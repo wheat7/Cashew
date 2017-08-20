@@ -13,6 +13,7 @@ import com.wheat7.cashew.activity.WebActivity;
 import com.wheat7.cashew.databinding.ItemHasImageBinding;
 import com.wheat7.cashew.databinding.ItemNoImageBinding;
 import com.wheat7.cashew.model.Gank;
+import com.wheat7.cashew.utils.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,7 @@ public class DailyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVi
             getBinding().setData(data);
             getBinding().setShowCategory(showCategory);
             getBinding().executePendingBindings();
+            getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -119,6 +121,7 @@ public class DailyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVi
         public void setHolderData(final Gank data, boolean showCategory, final int pos) {
             getBinding().setData(data);
             getBinding().setShowCategory(showCategory);
+            getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
             getBinding().executePendingBindings();
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
                 @Override
