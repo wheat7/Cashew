@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="act"
+            type="com.wheat7.cashew.activity.WebActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_main"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/toolBarColor">
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="23dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{()-> act.onIcBackClick()}"
+                android:src="@drawable/selector_ic_back" />
+
+            <TextView
+                android:id="@+id/tv_close"
+                android:layout_width="45dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:onClick="@{()-> act.onCloseClick()}"
+                android:text="关闭"
+                android:textColor="#b3ffffff"
+                android:textSize="15sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/web_title"
+                android:layout_width="190dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="正在加载..."
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:onClick="@{()-> act.onIcMoreClick()}"
+                android:layout_width="23dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/selector_ic_more" />
+        </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/web_progress"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:progressDrawable="@drawable/layer_progress_web" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/color_main</color>
+    <color name="colorPrimaryDark">@color/color_main</color>
+    <color name="colorAccent">@color/color_main</color>
+    <color name="color_main">#e7432e</color>
+    <color name="color_main_gray">#8a8a8a</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_progress">#515151</color>
+
+</resources>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="act"
+            type="com.wheat7.cashew.activity.AboutActivity" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_main"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:theme="@style/toolBarColor">
+
+        <ImageView
+            android:onClick="@{()-> act.onIcBackClick()}"
+            android:id="@+id/ic_back"
+            android:layout_width="23dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/selector_ic_back" />
+
+        <TextView
+            android:id="@+id/web_title"
+            android:layout_width="190dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="关于"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:onClick="@{()-> act.onShareClick()}"
+            android:layout_width="23dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/selector_ic_more" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+
+        android:id="@+id/imageView2"
+        android:layout_width="70dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_about" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:text="腰果"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+    android:layout_marginLeft="30dp"
+    android:textSize="15.5sp"
+    android:autoLink="all"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="腰果是一个开源项目 https://wheat7.com"/>
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="腰果是一个gank.io的客户端"/>
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="腰果的数据来源 http://gank.io"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:text="开发者"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wheat7" />
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://wheat7.com" />
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://github.com/wheat7" />
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://www.jianshu.com/u/6005415e3069" />
+
+
+
+</LinearLayout>
+
+        <TextView
+            android:text="Design by Wheat7 with passion"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+
+
+
+</layout>

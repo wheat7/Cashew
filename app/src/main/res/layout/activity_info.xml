@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="act"
+            type="com.wheat7.cashew.activity.InfoActivity" />
+
+        <variable
+            name="vm"
+            type="com.wheat7.cashew.viewmodel.InfoViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/color_main"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:theme="@style/toolBarColor">
+
+                <ImageView
+                    android:id="@+id/ic_back"
+                    android:layout_width="23dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="@{()-> act.onIcBackClick()}"
+                    android:src="@drawable/selector_ic_back" />
+
+                <TextView
+                    android:id="@+id/web_title"
+                    android:layout_width="190dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="腰果"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+            </android.support.v7.widget.Toolbar>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:padding="40dp"
+                android:src="@drawable/ic_app_t" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="#FFFFFF"
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="@{()-> act.onClearCacheClick()}"
+                android:text="@{`清除缓存(` + vm.mImageCacheSize +`)`}"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="#FFFFFF"
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="@{()-> act.onFeedBackClick()}"
+                android:text="提交反馈"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="#FFFFFF"
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="@{()-> act.onCheckUpdateClick()}"
+                android:text="检查更新"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Button
+                android:onClick="@{()-> act.onAboutClick()}"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="#FFFFFF"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="关于"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="腰果 v1.0" />
+    </FrameLayout>
+</layout>

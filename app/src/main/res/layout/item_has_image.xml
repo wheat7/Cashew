@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.wheat7.cashew.model.Gank" />
+
+        <variable
+            name="showCategory"
+            type="Boolean" />
+
+        <variable
+            name="viewHolder"
+            type="com.wheat7.cashew.recycler.BaseDataBindingViewHolder" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{showCategory?View.VISIBLE:View.GONE}">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:text="@{data.type}"
+                android:textSize="16.5sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#FFFFFF"
+            android:id="@+id/item_gank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp">
+
+
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/text_des"
+                android:maxLines="3"
+                android:layout_width="215dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@{data.desc}"
+                android:textColor="#de000000"
+                android:textSize="15.5sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_user" />
+
+                <TextView
+                    android:id="@+id/text_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:layout_marginRight="5dp"
+                    android:text="@{data.who}"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/img_gank"
+                android:layout_width="115dp"
+                android:layout_height="90dp"
+                android:layout_gravity="right|center_vertical"
+                android:scaleType="centerCrop"
+                android:visibility="@{data.images.size()==0?View.GONE:View.VISIBLE}" />
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

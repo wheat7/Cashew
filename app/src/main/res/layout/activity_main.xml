@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/main_frameLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_above="@+id/bnve"></FrameLayout>-->
+
+    <com.wheat7.cashew.view.NoTouchNoAnimViewPager
+        android:id="@+id/viewpager_main"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/bnve"
+        android:layout_height="match_parent">
+    </com.wheat7.cashew.view.NoTouchNoAnimViewPager>
+
+
+
+    <com.wheat7.cashew.view.BottomNavigationViewEx
+        android:id="@+id/bnve"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_navigation_selector" />
+
+</RelativeLayout>
+
+</layout>
