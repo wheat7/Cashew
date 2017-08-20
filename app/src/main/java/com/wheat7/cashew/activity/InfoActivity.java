@@ -43,7 +43,7 @@ public class InfoActivity extends BaseActivity<ActivityInfoBinding> {
      */
     public void onFeedBackClick() {
         Intent intent  = new Intent(this, WebActivity.class);
-        intent.putExtra("URL","https://github.com/wheat7/VRPlayer/issues");
+        intent.putExtra("URL","https://github.com/wheat7/Cashew/issues");
         startActivity(intent);
     }
 
@@ -52,7 +52,7 @@ public class InfoActivity extends BaseActivity<ActivityInfoBinding> {
      */
     public void onCheckUpdateClick() {
         Intent intent  = new Intent(this, WebActivity.class);
-        intent.putExtra("URL","https://github.com/wheat7/VRPlayer");
+        intent.putExtra("URL","https://github.com/wheat7/Cashew");
         startActivity(intent);
     }
 

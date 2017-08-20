@@ -93,7 +93,15 @@
     android:autoLink="all"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="腰果是一个开源项目 https://wheat7.com"/>
+    android:text="腰果是一个开源项目："/>
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://github.com/wheat7/Cashew"/>
 
     <TextView
         android:layout_marginLeft="30dp"

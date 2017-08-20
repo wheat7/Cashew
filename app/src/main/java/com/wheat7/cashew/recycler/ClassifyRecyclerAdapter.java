@@ -45,7 +45,6 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         mDataList = data;
     }
 
-
     @Override
     public int getItemViewType(int position) {
         if (position + 1 == getItemCount() && mDataList.size() > 0) {
@@ -157,7 +156,6 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
                 }
             });
         }
-
     }
 
     class FooterViewHolder extends BaseDataBindingViewHolder<ViewRecyclerLoadingBinding> {
@@ -166,4 +164,5 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
             super(parent, res);
         }
     }
+
 }
