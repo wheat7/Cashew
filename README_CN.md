@@ -1,5 +1,5 @@
 # 腰果
-腰果Cashew是一个[gank.io](gank.io)的客户端，腰果的目标是有质感、漂亮，立志做最好看的[gank.io](gank.io)客户端 而不是一个Demo（逃），并且，腰果除了网络、图片加载、基本没有使用其他的第三方开源项目，基本都基于原生实现，腰果使用了DataBinding，所以我又想称腰果为：Gank with DataBinding
+腰果Cashew是一个[gank.io](gank.io)的客户端，腰果的目标是有质感、漂亮，立志做最好看的[gank.io](gank.io)客户端 而不是一个Demo（逃），并且，腰果除了网络、图片加载、基本没有使用其他的第三方开源项目，基本都基于原生实现，腰果整体上使用了DataBinding，能作为一个很好的Databinding的使用范例，所以我又想称腰果为：Gank with DataBinding
 
 <img src="/screenshots/cashew1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots//cashew2.png" alt="screenshot" title="screenshot" width="270" height="486" />  <img src="/screenshots/cashew3.png" alt="screenshot" title="screenshot" width="270" height="486" />  
 
@@ -58,6 +58,9 @@
 
 ## 源码分析&教程
 后续会发布到我的[小站](http:wheat7.com)和[简书](http://www.jianshu.com/u/6005415e3069)
+
+## 更新日志
+* v1.0 : 初版
 
 ## License
 
