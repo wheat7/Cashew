@@ -65,7 +65,7 @@
 感觉gank没有官方的讨论群，斗胆建一个，大家加群一起讨论     
 群号：198233012
 
-  <img src="/screenshots/qq.jepg" alt="screenshot" title="screenshot" width="270" height="300" />  
+  <img src="/screenshots/qq.jpeg" alt="screenshot" title="screenshot" width="270" height="300" />  
 
 ## License
 
