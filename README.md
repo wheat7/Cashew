@@ -60,7 +60,7 @@
 * 无网缓存
 
 ## 源码分析&教程
-后续会发布到我的[小站](http:wheat7.com)和[简书](http://www.jianshu.com/u/6005415e3069)，点开关注我先马后看喔
+后续会发布到我的[小站](http:wheat7.com)和[简书](http://www.jianshu.com/u/6005415e3069)
 
 ## 更新日志
 * v1.0(2017-8-20): 初版
@@ -73,7 +73,7 @@
   <img src="/screenshots/qq.jpeg" alt="screenshot" title="screenshot" width="270" height="350" />  
   
 ## 我的其他项目推荐
-### [VRPlayer-一个极简但是强大的本地VR视频播放器](https://github.com/wheat7/VRPlayer) 带源码分析喔，有对这块感兴趣的同学可以看一看，记得Star和Fork～
+### [VRPlayer-一个极简但是强大的本地VR视频播放器](https://github.com/wheat7/VRPlayer) 带源码分析喔，有对这块感兴趣的同学可以看一看
 
 ## License
 
