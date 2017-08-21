@@ -89,7 +89,7 @@ public class DailyListFragment extends BaseFragment<FragmentDailyListBinding> im
 
         @Override
         public void onError(@NonNull Throwable e) {
-            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "刷新失败，请检查网络重试", Toast.LENGTH_LONG).show();
             getBinding().swipeRefreshDaily.setRefreshing(false);
         }
 

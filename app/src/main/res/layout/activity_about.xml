@@ -56,10 +56,9 @@
 
 
     <ImageView
-
         android:id="@+id/imageView2"
         android:layout_width="70dp"
-        android:layout_height="190dp"
+        android:layout_height="130dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_about" />
 
@@ -177,7 +176,38 @@
         android:layout_height="wrap_content"
         android:text="http://www.jianshu.com/u/6005415e3069" />
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
+        <View
+            android:layout_width="3dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:text="开源许可"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://github.com/wheat7/Cashew" />
 
 </LinearLayout>
 

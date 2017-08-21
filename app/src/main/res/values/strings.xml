@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">腰果</string>
+    <string name="app_version_show">腰果 v1.1</string>
 </resources>

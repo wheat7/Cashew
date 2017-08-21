@@ -66,6 +66,9 @@ public class InfoActivity extends BaseActivity<ActivityInfoBinding> {
         getBinding().getVm().notifyPropertyChanged(BR.imageCacheSize);
     }
 
+    /**
+     * About click
+     */
     public void onAboutClick() {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);

@@ -7,6 +7,8 @@
 
   <img src="/screenshots/cashew7.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/cashew8.png" alt="screenshot" title="screenshot" width="270" height="486" /> <img src="/screenshots/cashew9.png" alt="screenshot" title="screenshot" width="270" height="486" />
   
+ <img src="/screenshots/cashew10.png" alt="screenshot" title="screenshot" width="270" height="486" />
+  
 ## 技术细节
 看到腰果的UI同学心里肯定想的是：这到底用了什么库啊？其实，腰果除了网络模块使用了Retrofit+RxJava，图片加载模块使用了Glide，基本所有的UI都是基于原生实现，或是在原生上进行修改，并没有依赖什么UI库，上拉加载都是手动实现的喔，腰果的首要目标是质感，是一个App，是一个产品，而不是一个Demo，不仅为了漂亮，也为了更高的参考价值，因为我们工作中要做的，是一个有质感的产品，而并不是一个Demo      
 
@@ -42,24 +44,27 @@
 ## 腰果的功能
 腰果的功能当然是补肾咯！所以腰果暂时没有加入福利（妹子）功能，后续考虑加入
 
+### 腰果现在实现的功能
 * 每日干货
 * 分类干货
 * 清除图片缓存
 * webview查看干货
 * 分享
+* 网络错误时的界面容错
 
-后续考虑完善的功能 
+### 后续考虑完善的功能 
 
 * 妹子
 * 提交干货
 * 搜索
-* 无网缓存，网络错误时的界面容错
+* 无网缓存
 
 ## 源码分析&教程
 后续会发布到我的[小站](http:wheat7.com)和[简书](http://www.jianshu.com/u/6005415e3069)
 
 ## 更新日志
-* v1.0 : 初版
+* v1.0(2017-8-220): 初版
+* v1.1(2017-8-21) : 加入网络错误时的界面容错，点击重新加载，修复一些bug
 
 ## 一起讨论
 感觉gank没有官方的讨论群，斗胆建一个，大家加群一起讨论     

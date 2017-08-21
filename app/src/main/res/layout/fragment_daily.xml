@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="frag"
-            type="com.wheat7.cashew.fragment.DailyFragment" />
+            type="com.wheat7.cashew.fragment.DailyFragment"/>
     </data>
 
     <LinearLayout
@@ -21,10 +22,10 @@
             android:background="@color/color_main">
 
             <ImageView
-                android:onClick="@{()-> frag.onAboutClick()}"
                 android:layout_width="21dp"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center_vertical"
+                android:onClick="@{()-> frag.onAboutClick()}"
                 android:src="@drawable/selector_ic_about"/>
 
             <TextView
@@ -36,23 +37,68 @@
                 android:textSize="17sp"/>
         </android.support.v7.widget.Toolbar>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout_day"
-            app:tabMode="scrollable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabBackground="@color/color_main"
-            app:tabIndicatorColor="#FFFFFF"
-            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-            app:tabIndicatorHeight="2dp"
-            app:tabSelectedTextColor="#FFFFFF"
-            app:tabTextColor="#b3ffffff"/>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager_day"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabBackground="@color/color_main"
+                    app:tabIndicatorColor="#FFFFFF"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="#FFFFFF"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    app:tabTextColor="#b3ffffff"/>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </android.support.v4.view.ViewPager>
+
+            </LinearLayout>
+
+          <!--<include-->
+              <!--android:visibility="gone"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:layout_width="match_parent"-->
+              <!--layout="@layout/view_net_error"-->
+              <!--android:id="@+id/view_error"></include>-->
+
+            <FrameLayout
+                android:background="@color/color_white"
+                android:visibility="gone"
+                android:id="@+id/view_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="180dp"
+                    android:src="@drawable/ic_error"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="260dp"
+                    android:text="加载失败，点击重试"
+                    android:textSize="15sp"/>
+
+            </FrameLayout>
+
+        </FrameLayout>
+
 
     </LinearLayout>
 

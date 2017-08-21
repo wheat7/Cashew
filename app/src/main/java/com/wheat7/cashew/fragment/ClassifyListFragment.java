@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.wheat7.cashew.R;
 import com.wheat7.cashew.base.BaseFragment;
@@ -44,6 +46,7 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
 
     @Override
     public void initView(Bundle savedInstanceState) {
+
         getBinding().swipeRefreshClassify.setColorSchemeColors(Color.parseColor("#515151"));
         mAdapter = new ClassifyRecyclerAdapter(getActivity());
         getBinding().recyclerClassify.setAdapter(mAdapter);
@@ -159,11 +162,24 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
         public void onError(@NonNull Throwable e) {
             Log.d("GANK", e.getMessage());
             getBinding().swipeRefreshClassify.setRefreshing(false);
+            if (mAdapter.getRealCount() == 0 ) {
+                getBinding().viewError.setVisibility(View.VISIBLE);
+                getBinding().viewError.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onRefresh();
+                        getBinding().swipeRefreshClassify.setRefreshing(true);
+                    }
+                });
+            } else {
+                Toast.makeText(getActivity(), "刷新失败，请检查网络重试", Toast.LENGTH_SHORT).show();
+            }
         }
 
         @Override
         public void onComplete() {
             getBinding().swipeRefreshClassify.setRefreshing(false);
+            getBinding().viewError.setVisibility(View.GONE);
         }
     };
 

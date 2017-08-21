@@ -1,8 +1,10 @@
 package com.wheat7.cashew.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.Toast;
 
 import com.wheat7.cashew.R;
@@ -35,6 +37,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
 
+    private ProgressDialog mProgressDialog;
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_daily;
@@ -42,12 +46,15 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog.setMessage("正在加载...");
         getBinding().setFrag(this);
         getHistoryDate();
     }
 
 
     private void getHistoryDate() {
+        mProgressDialog.show();
         String baseUrl = "http://gank.io/api/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -86,12 +93,22 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
 
         @Override
         public void onError(@NonNull Throwable e) {
-            Toast.makeText(getActivity(), "请求失败，请稍后重试", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "请求失败，请检查网络后重试", Toast.LENGTH_SHORT).show();
+            mProgressDialog.dismiss();
+            getBinding().viewError.setVisibility(View.VISIBLE);
+            getBinding().viewError.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mProgressDialog.show();
+                    getHistoryDate();
+                }
+            });
         }
 
         @Override
         public void onComplete() {
-
+            mProgressDialog.dismiss();
+            getBinding().viewError.setVisibility(View.GONE);
         }
     };
 

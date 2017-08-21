@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.wheat7.cashew.R;
 import com.wheat7.cashew.activity.WebActivity;
 import com.wheat7.cashew.databinding.ItemHasImageBinding;
@@ -64,6 +65,10 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         }
     }
 
+    public int getRealCount() {
+        return mDataList.size();
+    }
+
     public void addMoreItem(List<Gank> newDataList) {
 //        if (newDataList != null && newDataList.size() != 0) {
         mDataList.addAll(newDataList);
@@ -82,7 +87,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
             case TYPE_ITEM_NO_IMAGE:
                 return new ItemNoImageViewHolder(parent, R.layout.item_no_image);
         }
-        return null;
+        return new ItemNoImageViewHolder(parent, R.layout.item_no_image);
     }
 
     @Override
@@ -113,7 +118,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         }
 
         public void setHolderData(final Gank data, final int pos) {
-            getBinding().setData(data);
+            if (data != null) getBinding().setData(data);
             getBinding().setShowCategory(false);
             getBinding().executePendingBindings();
             getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
@@ -124,8 +129,10 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
                 }
             });
             if (data.getImages() != null && data.getImages().size() != 0) {
+                RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.image_loading);
                 Glide.with(itemView.getContext())
                         .load(data.getImages().get(0) + "?imageView2/0/w/200")
+                        .apply(requestOptions)
                         .into(getBinding().imgGank);
             }
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
@@ -180,7 +187,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
     }
 
     public void setNetError() {
-        footerViewHolder.getBinding().textLoading.setText("加载错误，点击重试");
+        footerViewHolder.getBinding().textLoading.setText("加载失败，点击重试");
         footerViewHolder.getBinding().viewLoading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
