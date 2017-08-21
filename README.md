@@ -1,5 +1,5 @@
 # 腰果
-腰果Cashew是一个[gank.io](gank.io)的客户端，腰果的目标是简洁，但是有质感、漂亮，立志做最好看的[gank.io](gank.io)客户端 而不是一个Demo（捂脸，逃），并且，腰果除了网络、图片加载、基本没有使用其他的第三方开源项目，基本都基于原生实现，腰果整体上使用了DataBinding，能作为一个很好的Databinding的使用范例，所以我又想称腰果为：Gank with DataBinding
+腰果Cashew是一个[gank.io](http://gank.io)的客户端，腰果的目标是简洁，但是有质感、漂亮，立志做最好看的[gank.io](http://gank.io)客户端 而不是一个Demo（捂脸，逃），并且，腰果除了网络、图片加载、基本没有使用其他的第三方开源项目，基本都基于原生实现，腰果整体上使用了DataBinding，能作为一个很好的Databinding的使用范例，所以我又想称腰果为：Gank with DataBinding
 
 <img src="/screenshots/cashew1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots//cashew2.png" alt="screenshot" title="screenshot" width="270" height="486" />  <img src="/screenshots/cashew3.png" alt="screenshot" title="screenshot" width="270" height="486" />  
 
@@ -37,7 +37,7 @@
 
 腰果的数据来自
 
-* [gank.io](gank.io) 感谢！
+* [gank.io](http://gank.io) 感谢！
   
 ## 腰果的功能
 腰果的功能当然是补肾咯！所以腰果暂时没有加入福利（妹子）功能，后续考虑加入
