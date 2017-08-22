@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.wheat7.cashew.R;
 import com.wheat7.cashew.activity.WebActivity;
 import com.wheat7.cashew.databinding.ItemHasImageBinding;
@@ -70,13 +69,14 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
     }
 
     public void addMoreItem(List<Gank> newDataList) {
-//        if (newDataList != null && newDataList.size() != 0) {
-        mDataList.addAll(newDataList);
-        notifyDataSetChanged();
+        if (newDataList != null && newDataList.size() != 0) {
+            mDataList.addAll(newDataList);
+            notifyDataSetChanged();
+        }
     }
-//    }
 
     FooterViewHolder footerViewHolder;
+
     @Override
     public BaseDataBindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
@@ -129,10 +129,10 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
                 }
             });
             if (data.getImages() != null && data.getImages().size() != 0) {
-                RequestOptions requestOptions = new RequestOptions().placeholder(R.drawable.image_loading);
                 Glide.with(itemView.getContext())
                         .load(data.getImages().get(0) + "?imageView2/0/w/200")
-                        .apply(requestOptions)
+                        .placeholder(R.drawable.image_loading)
+                        .crossFade()
                         .into(getBinding().imgGank);
             }
             getBinding().itemGank.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +191,7 @@ public class ClassifyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindin
         footerViewHolder.getBinding().viewLoading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (mOnReloadClickListener != null) mOnReloadClickListener.onClick();
+                if (mOnReloadClickListener != null) mOnReloadClickListener.onClick();
             }
         });
         footerViewHolder.getBinding().progressLoading.setVisibility(View.GONE);

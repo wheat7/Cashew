@@ -48,6 +48,7 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
     public void initView(Bundle savedInstanceState) {
         mProgressDialog = new ProgressDialog(getActivity());
         mProgressDialog.setMessage("正在加载...");
+        mProgressDialog.setCanceledOnTouchOutside(false);
         getBinding().setFrag(this);
         getHistoryDate();
     }
@@ -86,7 +87,7 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
                 fragments.add(DailyListFragment.getDailyListFragmentInstance(date));
             }
             fragmentPageAdapter.setItems(strings.subList(0, 15), fragments);
-            getBinding().viewpagerDay.setOffscreenPageLimit(fragments.size());
+            getBinding().viewpagerDay.setOffscreenPageLimit(5);
             getBinding().viewpagerDay.setAdapter(fragmentPageAdapter);
             getBinding().tabLayoutDay.setupWithViewPager(getBinding().viewpagerDay);
         }
@@ -142,9 +143,9 @@ public class DailyFragment extends BaseFragment<FragmentDailyBinding> {
     }
 
     /**
-     * About click
+     * Info click
      */
-    public void onAboutClick() {
+    public void onInfoClick() {
         Intent intent = new Intent(getActivity(), InfoActivity.class);
         startActivity(intent);
     }

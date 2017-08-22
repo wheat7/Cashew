@@ -11,4 +11,9 @@
         android:icon="@drawable/selector_claaify"
         android:title="分类" />
 
+    <item
+        android:id="@+id/b_i_girl"
+        android:icon="@drawable/selector_girl"
+        android:title="妹纸" />
+
 </menu>

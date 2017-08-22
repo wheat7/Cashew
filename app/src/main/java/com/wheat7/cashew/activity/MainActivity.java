@@ -13,6 +13,7 @@ import com.wheat7.cashew.base.BaseActivity;
 import com.wheat7.cashew.databinding.ActivityMainBinding;
 import com.wheat7.cashew.fragment.ClassifyFragment;
 import com.wheat7.cashew.fragment.DailyFragment;
+import com.wheat7.cashew.fragment.GirlFragment;
 import com.wheat7.cashew.utils.swipebackhelper.SwipeBackHelper;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new DailyFragment());
         fragments.add(new ClassifyFragment());
+        fragments.add(new GirlFragment());
         getBinding().viewpagerMain.setOffscreenPageLimit(fragments.size());
         NoTouchNoAnimPagerAdapter noTouchNoAnimPagerAdapter = new NoTouchNoAnimPagerAdapter(getSupportFragmentManager(), fragments);
         getBinding().viewpagerMain.setAdapter(noTouchNoAnimPagerAdapter);
@@ -56,6 +58,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 break;
             case R.id.b_i_classify:
                 getBinding().viewpagerMain.setCurrentItem(1);
+                break;
+            case R.id.b_i_girl:
+                getBinding().viewpagerMain.setCurrentItem(2);
                 break;
         }
     }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.wheat7.cashew.R;
 import com.wheat7.cashew.activity.WebActivity;
 import com.wheat7.cashew.databinding.ItemHasImageBinding;
@@ -91,11 +90,10 @@ public class DailyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVi
             getBinding().executePendingBindings();
             getBinding().textTime.setText(TimeUtil.getFormatTime(data.getPublishedAt()));
             if (data.getImages() != null && data.getImages().size() != 0) {
-                RequestOptions requestOptions = new RequestOptions()
-                        .placeholder(R.drawable.image_loading);
                 Glide.with(itemView.getContext())
                         .load(data.getImages().get(0) + "?imageView2/0/w/200")
-                        .apply(requestOptions)
+                        .placeholder(R.drawable.image_loading)
+                        .crossFade()
                         .into(getBinding().imgGank);
             }
 

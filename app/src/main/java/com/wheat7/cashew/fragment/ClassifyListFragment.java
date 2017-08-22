@@ -106,7 +106,7 @@ public class ClassifyListFragment extends BaseFragment<FragmentClassifyListBindi
                 @Override
                 public void onClick() {
                     mAdapter.setIsLoading();
-                    loadMore(mCurrentPage);
+                    //loadMore(mCurrentPage);
                 }
             });
         }

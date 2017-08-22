@@ -33,4 +33,6 @@ public abstract class BaseDataBindingViewHolder<T extends ViewDataBinding>  exte
         return (T) this.viewDataBinding;
     }
 
+
+
 }
