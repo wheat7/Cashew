@@ -73,7 +73,7 @@
   <img src="/screenshots/qq.jpeg" alt="screenshot" title="screenshot" width="270" height="350" />  
   
 ## 我的其他项目推荐
-### [VRPlayer-一个极简但是强大的本地VR视频播放器](https://github.com/wheat7/VRPlayer) 带源码分析喔，有对这块感兴趣的同学可以看一看
+### [VRPlayer-一个极简但是强大的本地VR视频播放器](https://github.com/wheat7/VRPlayer) 带源码分析喔，有对这块感兴趣的同学可以看一看，Star&Fork，滋瓷一下，吼不吼阿
 
 ## License
 
