@@ -18,6 +18,7 @@
 * OkHttp
 * RxJava & RxAndroid
 * Glide
+* PhotoView
 * SwipeBackHelper
 * Leakcanary
 * BottomNavigationViewEx
