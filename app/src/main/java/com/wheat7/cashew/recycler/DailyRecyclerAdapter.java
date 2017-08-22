@@ -79,7 +79,6 @@ public class DailyRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVi
         return mDataList.size();
     }
 
-
     class ItemHasImageViewHolder extends BaseDataBindingViewHolder<ItemHasImageBinding> {
 
         public ItemHasImageViewHolder(ViewGroup parent, @LayoutRes int res) {

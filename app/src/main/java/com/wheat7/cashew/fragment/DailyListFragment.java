@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 import android.widget.Toast;
 
 import com.wheat7.cashew.R;
@@ -89,13 +90,25 @@ public class DailyListFragment extends BaseFragment<FragmentDailyListBinding> im
 
         @Override
         public void onError(@NonNull Throwable e) {
-            Toast.makeText(getActivity(), "刷新失败，请检查网络重试", Toast.LENGTH_LONG).show();
             getBinding().swipeRefreshDaily.setRefreshing(false);
+            if (mAdapter.getItemCount() == 0 ) {
+                getBinding().viewError.setVisibility(View.VISIBLE);
+                getBinding().viewError.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onRefresh();
+                        getBinding().swipeRefreshDaily.setRefreshing(true);
+                    }
+                });
+            } else {
+                Toast.makeText(getActivity(), "刷新失败，请检查网络重试", Toast.LENGTH_SHORT).show();
+            }
         }
 
         @Override
         public void onComplete() {
             getBinding().swipeRefreshDaily.setRefreshing(false);
+            getBinding().viewError.setVisibility(View.GONE);
         }
     };
 
