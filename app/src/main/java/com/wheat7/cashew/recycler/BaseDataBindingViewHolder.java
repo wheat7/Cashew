@@ -1,5 +1,6 @@
 package com.wheat7.cashew.recycler;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
@@ -31,6 +32,10 @@ public abstract class BaseDataBindingViewHolder<T extends ViewDataBinding>  exte
 
     public T getBinding() {
         return (T) this.viewDataBinding;
+    }
+
+    public Context getContext() {
+        return itemView.getContext();
     }
 
 

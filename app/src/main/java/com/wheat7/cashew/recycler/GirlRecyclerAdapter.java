@@ -14,6 +14,7 @@ import com.wheat7.cashew.databinding.ItemGirlBinding;
 import com.wheat7.cashew.databinding.ViewRecyclerLoadingBinding;
 import com.wheat7.cashew.model.Gank;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class GirlRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVie
     private List<Gank> mDataList = new ArrayList<>();
     private final static int TYPE_ITEM = 1;
     private final static int TYPE_FOOTER = 2;
-    private Context mContext;
+    private  Context mContext;
 
     public GirlRecyclerAdapter(Context mContext) {
         this.mContext = mContext;
@@ -45,7 +46,7 @@ public class GirlRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVie
     @Override
     public BaseDataBindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_FOOTER) {
-            return new FooterViewHolder(parent, R.layout.view_recycler_loading);
+            return footerViewHolder = new FooterViewHolder(parent, R.layout.view_recycler_loading);
         } else if (viewType == TYPE_ITEM) {
             return new ImageItemViewHolder(parent, R.layout.item_girl);
         }
@@ -57,6 +58,7 @@ public class GirlRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVie
         if (holder instanceof ImageItemViewHolder) {
             if (mDataList.size() != 0) {
                 ((ImageItemViewHolder) holder).setHolderData(mDataList.get(position), position);
+                ((ImageItemViewHolder) holder).setHolderDataList(mDataList, position);
             }
         }
     }
@@ -93,19 +95,24 @@ public class GirlRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVie
         public void setHolderData(final Gank data, final int pos) {
             if (data.getUrl() != null) {
                 Glide.with(itemView.getContext())
-                        .load(data.getUrl() + "?imageView2/0/w/400").crossFade()
+                        .load(data.getUrl() + "?imageView2/0/w/300").crossFade()
                         .into(getBinding().imgGirl);
             }
             getBinding().executePendingBindings();
+        }
+
+        public void setHolderDataList(final List<Gank> dataList, final int pos) {
             getBinding().itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(itemView.getContext(), ImageDetailActivity.class);
-                    intent.putExtra("GANKGIRL", data);
-                    itemView.getContext().startActivity(intent);
+                    Intent intent = new Intent(getContext(), ImageDetailActivity.class);
+                    intent.putExtra("GANKGIRL", (Serializable) dataList);
+                    intent.putExtra("POS", pos);
+                    getContext().startActivity(intent);
                 }
             });
         }
+
     }
 
     static class FooterViewHolder extends BaseDataBindingViewHolder<ViewRecyclerLoadingBinding> {

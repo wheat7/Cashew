@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="act"
-            type="com.wheat7.cashew.activity.ImageDetailActivity" />
+            type="com.wheat7.cashew.activity.ImageDetailActivity"/>
+
+        <variable
+            name="vm"
+            type="com.wheat7.cashew.viewmodel.ImageDetailViewModel" />
     </data>
 
     <LinearLayout
@@ -14,48 +18,65 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:theme="@style/toolBarColor">
-
-        <ImageView
-            android:id="@+id/ic_back"
-            android:layout_width="23dp"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="center_vertical"
-            android:onClick="@{()-> act.onIcBackClick()}"
-            android:src="@drawable/selector_ic_back" />
+            android:background="@color/color_main"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/toolBarColor">
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="23dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{()-> act.onIcBackClick()}"
+                android:src="@drawable/selector_ic_back"/>
+
+            <TextView
+                android:id="@+id/web_title"
+                android:layout_width="190dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"/>
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:onClick="@{()-> act.onIcMoreClick()}"
+                android:src="@drawable/selector_ic_more"/>
+        </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.wheat7.cashew.view.HackyViewPager
+            android:id="@+id/viewpager_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"/>
 
         <TextView
-            android:id="@+id/web_title"
-            android:layout_width="190dp"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="center"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text=""
-            android:textColor="#FFFFFF"
-            android:textSize="17sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@{vm.pos+ `/` +vm.total }"
+            android:textSize="16sp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/color_white"
+            android:layout_gravity="center|bottom"/>
 
-        <ImageView
-            android:onClick="@{()-> act.onIcMoreClick()}"
-            android:layout_width="23dp"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="right"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/selector_ic_more" />
-    </android.support.v7.widget.Toolbar>
-        
-        <com.github.chrisbanes.photoview.PhotoView
-            android:background="#000000"
-            android:id="@+id/img_detail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        </FrameLayout>
+
+
 
     </LinearLayout>
 

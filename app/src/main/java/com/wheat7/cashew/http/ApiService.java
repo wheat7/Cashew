@@ -16,7 +16,7 @@ import retrofit2.http.Path;
 
 public interface ApiService {
 
-    @GET("data/{type}/"+20+"/{page}")
+    @GET("data/{type}/"+15+"/{page}")
     Observable<BaseRes<List<Gank>>> getClassifyData(@Path("type") String type, @Path("page") int page);
 
     @GET("day/history")
