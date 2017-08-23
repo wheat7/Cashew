@@ -95,7 +95,7 @@ public class GirlRecyclerAdapter extends RecyclerView.Adapter<BaseDataBindingVie
         public void setHolderData(final Gank data, final int pos) {
             if (data.getUrl() != null) {
                 Glide.with(itemView.getContext())
-                        .load(data.getUrl() + "?imageView2/0/w/300").crossFade()
+                        .load(data.getUrl() + "?imageView2/0/w/200").crossFade()
                         .into(getBinding().imgGirl);
             }
             getBinding().executePendingBindings();
