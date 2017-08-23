@@ -164,6 +164,7 @@ public class GirlFragment extends BaseFragment<FragmentGirlBinding> implements S
         public void onNext(@NonNull List<Gank> gankClassifies) {
             if (gankClassifies != null && gankClassifies.size() != 0) {
                 mAdapter.addMoreItem(gankClassifies);
+                mAdapter.setIsLoading();
             } else {
                 mAdapter.setOnNoLoadMore();
             }
